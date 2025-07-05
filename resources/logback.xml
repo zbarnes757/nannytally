@@ -1,0 +1,27 @@
+<configuration>
+
+  <!-- This defines an "appender" which is a destination for logs. -->
+  <!-- In this case, we are defining a console appender named "STDOUT". -->
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <!-- This pattern defines the format of the log message. -->
+      <!-- %d is the date, %-5level is the log level, %logger{36} is the logger name, -->
+      <!-- %msg is the log message, and %n is a newline. -->
+      <pattern>%d{HH:mm:ss.SSS} [%-5level] %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <!-- This sets the log level for all loggers. -->
+  <!-- You can set it to TRACE, DEBUG, INFO, WARN, or ERROR. -->
+  <!-- By setting the root level to INFO, you will see INFO, WARN, and ERROR messages. -->
+  <root level="INFO">
+    <!-- This attaches the "STDOUT" appender to the root logger. -->
+    <appender-ref ref="STDOUT" />
+  </root>
+
+  <!-- You can also set log levels for specific packages. -->
+  <!-- For example, this sets the logger for "org.eclipse.jetty" to WARN -->
+  <!-- to reduce noise from the web server during development. -->
+  <logger name="org.eclipse.jetty" level="WARN"/>
+
+</configuration>

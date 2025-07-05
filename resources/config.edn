@@ -1,0 +1,7 @@
+{:server
+ {:port #profile {:default 3000
+                  :dev 3030
+                  :prod 80}
+  :join? #profile {:default false
+                   :dev true
+                   :prod true}}}

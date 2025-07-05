@@ -1,12 +1,14 @@
 (ns nannytally.app
-  "FIXME: my new org.corfield.new/scratch project.")
+  "Logging and Tracking hours for our nanny, Ju"
+  (:require
+   [integrant.core :as ig]
+   [nannytally.system :refer [system-map]])
+  (:gen-class))
 
-(defn exec
-  "Invoke me with clojure -X nannytally.app/exec"
-  [opts]
-  (println "exec with" opts))
+
+(defn start! [_opts] (ig/init system-map))
 
 (defn -main
   "Invoke me with clojure -M -m nannytally.app"
-  [& args]
-  (println "-main with" args))
+  [& _args]
+  (start! {:port 3000 :join? true}))

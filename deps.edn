@@ -1,4 +1,14 @@
-{:paths ["src"]
- :deps  {}
- :aliases 
- {:neil {:project {:name nannytally/nannytally}}}}
+{:paths ["src/", "resources/"]
+ :deps  {ring/ring-core {:mvn/version "1.14.2"}
+         ring/ring-jetty-adapter {:mvn/version "1.14.2"}
+         integrant/integrant {:mvn/version "0.13.1"}
+         aero/aero {:mvn/version "1.1.6"}
+         compojure/compojure {:mvn/version "1.7.1"}
+         ring-logger/ring-logger {:mvn/version "1.1.1"}
+         org.clojure/tools.logging {:mvn/version "1.3.0"}
+         ch.qos.logback/logback-classic {:mvn/version "1.5.18"}}
+ :aliases
+ {:neil {:project {:name nannytally/nannytally}}
+  :kaocha {:extra-deps {lambdaisland/kaocha {:mvn/version "1.91.1392"}}
+           :main-opts ["-m" "kaocha.runner"]
+           :jvm-opts ["-Dclojure.tools.logging.factory=clojure.tools.logging.impl/slf4j-factory"]}}}
