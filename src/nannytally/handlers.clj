@@ -48,8 +48,14 @@
   (let [db (get-db-conn request)
         id (get-in request [:params :id])
         _ (logging/info (str "Deleting entry: " id))
-        _ (entries/delete-entry db id)]
-    (html-response "")))
+        _ (entries/delete-entry db id)
+        entries (entries/list-entries db)
+        entries (map entries/add-total-hours-for-entry entries)]
+    (-> entries
+        views/entries-table
+        h/html
+        str
+        html-response)))
 
 (defroutes routes
   (GET "/" request (index request))

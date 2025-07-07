@@ -47,7 +47,7 @@
   [:article#entries-article
    [:header [:h3 "This Week's Hours"]]
    [:figure
-    [:table {:hx-target "closest tr" :hx-swap "outerHTML"}
+    [:table {:hx-target "#entries-article" :hx-swap "outerHTML"}
      [:thead
       [:tr
        [:th "Date"] [:th "Start"] [:th "End"] [:th "Total"] [:th "Notes"] [:th ""]]]
