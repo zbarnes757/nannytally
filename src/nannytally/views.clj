@@ -61,7 +61,10 @@
   (layout
    [:article
     [:header [:h3 "Add New Entry"]]
-    [:form {:hx-post "/entries", :hx-target "#entries-article" :hx-swap "outerHTML"}
+    [:form {:hx-post "/entries"
+            :hx-target "#entries-article"
+            :hx-swap "outerHTML"
+            "hx-on::after-request" "this.reset()"}
      [:div.grid
       [:label {:for "entry_date"} "Date"
        [:input {:type "date", :id "entry_date", :name "entry_date", :required true}]]
